@@ -31,25 +31,26 @@ public class Animal {
 
         // do some math and print result
         int sumOfnumbers = 5 + 1;
-        System.out.println("5 + 1" + sumOfnumbers);
+        System.out.println("5 + 1 = " + sumOfnumbers);
 
         int diffOfnumbers = 5 - 1;
-        System.out.println("5 - 1" + diffOfnumbers);
+        System.out.println("5 - 1 = " + diffOfnumbers);
 
         int multOfnumbers = 5 * 1;
-        System.out.println("5 * 1" + multOfnumbers);
+        System.out.println("5 * 1 = " + multOfnumbers);
 
         int divOfnumbers = 5 / 1;
-        System.out.println("5 /  1" + diffOfnumbers);
+        System.out.println("5 /  1 = " + divOfnumbers);
 
         int modOfnumbers = 5 % 1;
-        System.out.println("5 + 1" + modOfnumbers);
+        System.out.println("5 % 1 = " + modOfnumbers);
 
         // we want some imput from the keyboard
         System.out.print("Enter the name: \n");
         if (userinput.hasNextLine()){
             // user entered a string, see also hasNextInt, hasNextFloat...
             this.setName(userinput.nextLine());
+            System.out.println("Value entered: " + this.getName());
         }
         this.setUniqueID();
 
