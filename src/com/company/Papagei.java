@@ -6,17 +6,17 @@ package com.company;
 public class Papagei {
     private String name;
     private int age;
-
+    // via this we can set some attributes during call of constructor
+    public Papagei (String name){
+        this.name = name;
+    }
     public String getName(){
         return name;
     }
     public int getAge(){
         return age;
     }
-    public void setName(String input){
-        name = input;
-    }
-    public void setAge(int input){
-        age = input;
+    public void setAge(int age){
+        this.age = age;
     }
 }
