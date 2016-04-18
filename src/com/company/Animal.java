@@ -99,7 +99,7 @@ public class Animal {
 
     public void setUniqueID(long uniqueID) {
         this.uniqueID = uniqueID;
-        out.println("Unique ID set to: " + this.uniqueID);
+        System.out.println("Unique ID set to: " + this.uniqueID);
     }
     // method overload
     public void setUniqueID() {
