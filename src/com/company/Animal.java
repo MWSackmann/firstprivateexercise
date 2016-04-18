@@ -159,6 +159,7 @@ public class Animal {
         int whichIsBigger = (50 > randomInt) ? 50 : randomInt;
         System.out.println(whichIsBigger);
 
+        // case statement
         switch (randomInt){
             case 0:
                 System.out.println("integer has initial value");
