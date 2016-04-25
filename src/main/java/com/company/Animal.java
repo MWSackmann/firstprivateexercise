@@ -52,9 +52,9 @@ public class Animal {
             this.setName(userinput.nextLine());
             System.out.println("Value entered: " + this.getName());
         }
-        this.setUniqueID();
+        setUniqueID();
 
-        this.someOperations();
+        someOperations();
        }
 
     public static void main(String[] args){
