@@ -1,7 +1,8 @@
 package com.company;
 
-import java.util.HashMap;
-import java.util.Vector;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class Main {
 
@@ -19,6 +20,7 @@ public class Main {
 */
 
         demoArraysAndCollections();
+    //    demoDateAndTime();
 
     }
 
@@ -58,5 +60,50 @@ public class Main {
             System.out.println(hashtable.get(i));
         }
 
+
+        // collection List
+        List<String> liste = new ArrayList<>();  // or  LinkedList<>();
+        liste.add("Test1111");
+        liste.add("Test2222");
+        liste.add("Test3333");
+
+        for (String s : liste){
+            System.out.println(s);
+        }
+
+        List<OrderItem> orderItems = new ArrayList<>();
+        orderItems.add(new OrderItem("1", "first itme"));
+        orderItems.add(new OrderItem("1.2.1", "2nd sub-sub item"));
+        orderItems.add(new OrderItem("1.1.1", "1st sub-sub item"));
+        orderItems.add(new OrderItem("1.2", "2nd sub item"));
+        orderItems.add(new OrderItem("1.1", "1st sub item"));
+
+        Collections.sort(orderItems, new Comparator<OrderItem>() {
+            @Override
+            public int compare(OrderItem lhs, OrderItem rhs) {
+                // -1 - less than, 1 - greater than, 0 - equal, all inversed for descending
+                return lhs.getLineNumber().compareTo(rhs.getLineNumber());
+            }
+        });
+
+        for (OrderItem orderItem : orderItems){
+            System.out.println(orderItem.getLineNumber() + " " + orderItem.getText());
+        }
+
+
+    }
+    static void demoDateAndTime(){
+
+        Date date  = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        String formattedDate = sdf.format(date);
+
+        System.out.println(date);
+        System.out.println(date.toString());
+        System.out.println(sdf.format(date));
+
+        Calendar calendar = Calendar.getInstance();
+        Timestamp currentTimestamp = new Timestamp(calendar.getTime().getTime());
+        System.out.println(currentTimestamp);
     }
 }
