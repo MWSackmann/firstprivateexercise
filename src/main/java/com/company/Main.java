@@ -1,8 +1,14 @@
 package com.company;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -19,8 +25,9 @@ public class Main {
         System.out.println(hugo.getName() + ", Age: " + hugo.getAge());
 */
 
-        demoArraysAndCollections();
-    //    demoDateAndTime();
+    //    demoArraysAndCollections();
+        demoDateAndTime();
+    //    demoRegex();
 
     }
 
@@ -105,5 +112,31 @@ public class Main {
         Calendar calendar = Calendar.getInstance();
         Timestamp currentTimestamp = new Timestamp(calendar.getTime().getTime());
         System.out.println(currentTimestamp);
+
+        String inputDate = "2012-01-31";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        Date date2 = new Date().from(LocalDate.parse(inputDate, formatter).atStartOfDay().atZone(ZoneId.of("Z")).toInstant());
+
+        System.out.println(date2);
+
+        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+        sdf2.setTimeZone(TimeZone.getTimeZone("Z"));
+        try {
+            Date date3 = sdf2.parse(inputDate);
+            System.out.println(date3);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    static void demoRegex(){
+
+        Boolean result = Pattern.matches(".{1,10}", "123456-asd");
+        if (result){
+            System.out.println("ok");
+        }
+
     }
 }
